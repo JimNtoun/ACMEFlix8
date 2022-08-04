@@ -1,10 +1,10 @@
-package com.acmeflix.Service;
+package com.acmeflix.service;
 
-import com.acmeflix.domain.BaseModel;
+import acmeflix.model.BaseModel;
 
 import java.util.List;
 
-public interface BaseService < T extends BaseModel> {
+public interface BaseService<T extends BaseModel> {
     T create(final T entity);
 
     List<T> createAll(final T... entities);
@@ -22,5 +22,4 @@ public interface BaseService < T extends BaseModel> {
     T get(Long id);
 
     List<T> findAll();
-
 }

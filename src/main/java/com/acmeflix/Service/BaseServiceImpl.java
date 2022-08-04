@@ -1,7 +1,7 @@
-package com.acmeflix.Service;
+package com.acmeflix.service;
 
 import com.acmeflix.base.BaseComponent;
-import com.acmeflix.domain.BaseModel;
+import acmeflix.model.BaseModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Arrays;
@@ -12,50 +12,49 @@ public abstract class BaseServiceImpl<T extends BaseModel> extends BaseComponent
     public abstract JpaRepository<T, Long> getRepository();
 
     @Override
-    public List<T> createAll(final T... items) {
-        return createAll(Arrays.asList(items));
+    public T create(final T entity) {
+        logger.trace("Creating {}.", entity);
+        return getRepository().save(entity);
     }
 
     @Override
-    public List<T> createAll(final List<T> items) {
-        return getRepository().saveAll(items);
+    public List<T> createAll(final T... entities) {
+        return createAll(Arrays.asList(entities));
     }
 
     @Override
-    public T create(final T item) {
-        logger.trace("Creating {}.", item);
-        return getRepository().save(item);
+    public List<T> createAll(final List<T> entities) {
+        return getRepository().saveAll(entities);
     }
 
     @Override
-    public void update(final T item) {
-        logger.trace("Updating {}.", item);
-        getRepository().save(item);
+    public void update(final T entity) {
+        logger.trace("Updating {}.", entity);
+        getRepository().save(entity);
     }
 
     @Override
-    public void delete(final T item) {
-        final T itemFound = getRepository().getReferenceById(item.getId());
-        logger.trace("Deleting {}.", itemFound);
-        getRepository().delete(itemFound);
+    public void delete(final T entity) {
+        final T entityFound = getRepository().getReferenceById(entity.getId());
+        logger.trace("Deleting {}.", entityFound);
     }
 
     @Override
     public void deleteById(final Long id) {
-        final T itemFound = getRepository().getReferenceById(id);
-        logger.trace("Deleting {}.", itemFound);
+        final T entityFound = getRepository().getReferenceById(id);
+        logger.trace("Deleting {}.", entityFound);
         getRepository().deleteById(id);
     }
 
     @Override
-    public boolean exists(final T item) {
-        logger.trace("Checking whether {} exists.", item);
-        return getRepository().existsById(item.getId());
+    public boolean exists(final T entity) {
+        logger.trace("Checking if {} exists.", entity);
+        return getRepository().existsById(entity.getId());
     }
 
     @Override
     public T get(final Long id) {
-        logger.trace("Retrieving item with id {}.", id);
+        logger.trace("Retrieving entity with id {}.", id);
         return getRepository().findById(id).orElseThrow(NoSuchElementException::new);
     }
 
