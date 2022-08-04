@@ -1,4 +1,4 @@
-package acmeflix.model;
+package com.acmeflix.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @ToString(callSuper = true)
 @SuperBuilder
-public class AccountPerson extends BaseModel{
-    private String firstName;
-    private String lastName;
-    private int age;
+public class Season extends BaseModel{
+    private SeasonEpisode seasonEpisode;
+    private int  cycle;
 }

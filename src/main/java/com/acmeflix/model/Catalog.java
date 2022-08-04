@@ -1,4 +1,4 @@
-package acmeflix.model;
+package com.acmeflix.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @ToString(callSuper = true)
 @SuperBuilder
-public class SeasonEpisodeLangSub {
-    private String language;
-    private String subtitles;
+public class Catalog extends BaseModel{
+    private CatalogTVSeries tvSeries;
+    private CatalogMovie movies;
 }

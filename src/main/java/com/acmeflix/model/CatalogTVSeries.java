@@ -1,4 +1,4 @@
-package acmeflix.model;
+package com.acmeflix.model;
 
 import lombok.Getter;
 import lombok.Setter;
