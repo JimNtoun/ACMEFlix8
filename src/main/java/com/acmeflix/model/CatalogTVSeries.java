@@ -12,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 public class CatalogTVSeries extends BaseModel{
     private String seriesTitle;
     private CatalogCategoryTVMovie catalogCategoryTVMovie;
+    private Long duration;
     private Season season;
     private SeasonEpisode episodes;
     private StarRate starRate;

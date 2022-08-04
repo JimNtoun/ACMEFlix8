@@ -12,5 +12,9 @@ import lombok.experimental.SuperBuilder;
 public class AccountPerson extends BaseModel{
     private String firstName;
     private String lastName;
+    private String address;
+    private String country;
+    private String city;
+    private String postCode;
     private int age;
 }
