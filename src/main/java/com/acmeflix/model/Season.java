@@ -11,5 +11,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Season extends BaseModel{
     private SeasonEpisode seasonEpisode;
-    private int  cycle;
+    private int cycle;
 }

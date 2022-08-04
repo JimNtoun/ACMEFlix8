@@ -15,6 +15,6 @@ public class Account extends BaseModel{
    private String username;
    private String password;
    private String email;
-   private Catalog catalog;
    private AccountProfile accountProfile;
+   private AccountPerson accountPerson;
 }
