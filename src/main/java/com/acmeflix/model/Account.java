@@ -1,18 +1,17 @@
 package com.acmeflix.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 
 @Setter
 @Getter
 @ToString(callSuper = true)
-@SuperBuilder
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account extends BaseModel{
    private String username;
    private String password;
@@ -20,4 +19,5 @@ public class Account extends BaseModel{
    private Set<AccountProfile> accountProfiles;
    private AccountPerson accountPerson;
    private int subscription;
+
 }
