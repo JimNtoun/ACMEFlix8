@@ -19,5 +19,4 @@ public class Account extends BaseModel{
    private Set<AccountProfile> accountProfiles;
    private AccountPerson accountPerson;
    private int subscription;
-
 }

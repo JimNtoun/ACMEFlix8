@@ -19,4 +19,26 @@ public class CatalogServiceImpl extends BaseServiceImpl<Catalog> implements Cata
     public Catalog initiateCatalog(Account account) {
         return Catalog.builder().account(account).build();
     }
+
+    @Override
+    public void addCatalogMovie(Catalog catalog, WatchItem watchItem, String movieTitle) {
+
+    }
+
+    @Override
+    public void updateCatalogMovie(Catalog catalog, WatchItem watchItem, String movieTitle) {
+
+    }
+
+    @Override
+    public void removeCatalogMovie(Catalog catalog, WatchItem watchItem) {
+
+    }
+
+    @Override
+    public Catalog getLazy(Long id) {
+        return null;
+    }
+
+
 }
