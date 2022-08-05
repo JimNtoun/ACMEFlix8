@@ -1,10 +1,10 @@
 package com.acmeflix.repository;
 
-import com.acmeflix.model.Account;
+import com.acmeflix.model.Catalog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AccountRepository extends JpaRepository<Account , Long> {
-    Account findAccountByEmail(String email);
+public interface CatalogRepository extends JpaRepository<Catalog, Long> {
+
 }

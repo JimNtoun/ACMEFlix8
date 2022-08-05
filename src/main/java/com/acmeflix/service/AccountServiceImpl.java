@@ -1,4 +1,4 @@
-package com.acmeflix.Service;
+package com.acmeflix.service;
 
 import com.acmeflix.model.Account;
 import com.acmeflix.repository.AccountRepository;

@@ -1,15 +1,19 @@
-package com.acmeflix.Service;
+package com.acmeflix.service;
 
 
 
 import com.acmeflix.base.BaseComponent;
 import com.acmeflix.model.BaseModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
 public abstract class BaseServiceImpl<T extends BaseModel> extends BaseComponent implements BaseService<T> {
     public abstract JpaRepository<T, Long> getRepository();
 
@@ -48,18 +52,21 @@ public abstract class BaseServiceImpl<T extends BaseModel> extends BaseComponent
         getRepository().deleteById(id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public boolean exists(final T entity) {
         logger.trace("Checking if {} exists.", entity);
         return getRepository().existsById(entity.getId());
     }
 
+    @Transactional(readOnly = true)
     @Override
     public T get(final Long id) {
         logger.trace("Retrieving entity with id {}.", id);
         return getRepository().findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<T> findAll() {
         logger.trace("Retrieving all items.");

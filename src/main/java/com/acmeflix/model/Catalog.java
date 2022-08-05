@@ -15,4 +15,5 @@ public class Catalog extends BaseModel{
     private Account account;
     private Set<CatalogTVSeries> tvSeries;
     private Set<CatalogMovie> movies;
+
 }
